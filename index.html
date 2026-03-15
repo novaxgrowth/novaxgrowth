@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Nova X Growth — Performance Growth Agency</title>
+    <title>Growth X Nova — Performance Growth Agency</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://adgrowth7.xyz/wp-content/uploads/2026/03/Black-White-Minimalist-Letter-ST-Logo_20260315_125024_0000.png">
+    <link rel="apple-touch-icon" href="https://adgrowth7.xyz/wp-content/uploads/2026/03/Black-White-Minimalist-Letter-ST-Logo_20260315_125024_0000.png">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -671,32 +675,53 @@
             }
         }
 
-        /* ===== COURSES SECTION (NEW) ===== */
+        /* ===== COURSES SECTION (NOW MATCHES PACKAGES STYLE) ===== */
         .courses-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            gap: 15px;
+            margin-top: 30px;
             padding: 0 15px;
         }
 
         .course-card {
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
-            border-radius: 1.5rem;
-            padding: 2rem 1.5rem;
-            transition: all 0.3s ease;
+            border-radius: 16px;
+            padding: 25px 20px;
             position: relative;
-            backdrop-filter: blur(4px);
+            width: 100%;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
         .course-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-color: var(--electric-blue);
-            box-shadow: 0 20px 40px rgba(0,168,255,0.15);
-            background: rgba(255,255,255,0.05);
+            box-shadow: 0 20px 40px rgba(0,168,255,0.2);
+            background: rgba(255,255,255,0.04);
+        }
+
+        .course-card.featured {
+            background: linear-gradient(135deg, rgba(0, 168, 255, 0.1), rgba(138, 43, 226, 0.1));
+            border: 1px solid var(--nova-purple);
+        }
+
+        .course-card.featured:hover {
+            border-color: var(--electric-blue);
+            background: linear-gradient(135deg, rgba(0, 168, 255, 0.15), rgba(138, 43, 226, 0.15));
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
         }
 
         .course-icon {
@@ -716,15 +741,14 @@
 
         .course-price {
             font-size: 2rem;
-            font-weight: 700;
             color: var(--electric-blue);
-            margin: 0.75rem 0 1rem;
-            letter-spacing: -0.5px;
+            font-weight: 700;
+            margin: 12px 0;
         }
 
         .course-price small {
             font-size: 0.9rem;
-            color: rgba(255,255,255,0.5);
+            color: rgba(245,247,250,0.5);
             font-weight: 400;
         }
 
@@ -735,12 +759,31 @@
             flex: 1;
         }
 
+        .course-features {
+            list-style: none;
+            margin: 15px 0 20px;
+        }
+
+        .course-features li {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .course-features i {
+            color: var(--electric-blue);
+            width: 18px;
+            font-size: 0.9rem;
+        }
+
         .btn-course {
             background: transparent;
             border: 2px solid var(--electric-blue);
             color: var(--soft-white);
-            padding: 0.8rem 1rem;
-            border-radius: 3rem;
+            padding: 12px;
+            border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
@@ -748,7 +791,7 @@
             justify-content: center;
             gap: 0.5rem;
             transition: all 0.2s;
-            margin-top: 0.5rem;
+            margin-top: auto;
             width: 100%;
             font-size: 1rem;
         }
@@ -768,22 +811,10 @@
             transform: scale(0.98);
         }
 
-        .course-badge {
-            background: var(--gradient-primary);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            letter-spacing: 0.3px;
-        }
-
         @media (min-width: 640px) {
             .courses-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
         }
 
@@ -1335,7 +1366,7 @@
 <body>
     <!-- WhatsApp Button -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/917520692004?text=Hi%20NovaXGrowth!%20I'm%20interested%20in%20your%20services." target="_blank">
+        <a href="https://wa.me/917520692004?text=Hi%20GrowthX%20Nova!%20I'm%20interested%20in%20your%20services." target="_blank">
             <i class="fab fa-whatsapp"></i>
             <span class="whatsapp-tooltip">Chat with us</span>
         </a>
@@ -1344,7 +1375,7 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
-            <div class="logo-text">Nova X Growth</div>
+            <div class="logo-text">Growth X Nova</div>
             
             <div class="hamburger" id="hamburger">
                 <div class="bar"></div>
@@ -1513,7 +1544,7 @@
         </div>
     </section>
 
-    <!-- NEW COURSES SECTION -->
+    <!-- COURSES SECTION (Redesigned like Packages) -->
     <section id="courses">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">📘 <span class="gradient-text">Courses & API</span></h2>
@@ -1527,10 +1558,13 @@
                     <div class="course-icon"><i class="fab fa-facebook"></i></div>
                     <h3>Meta Ads Course</h3>
                     <div class="course-price">₹4,999 <small>+ tax</small></div>
-                    <p class="course-description">
-                        Master Facebook & Instagram ads: targeting, creative, pixel setup, and scaling strategies.
-                    </p>
-                    <a href="#" class="btn-course" onclick="return false;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <p class="course-description">Master Facebook & Instagram ads: targeting, creative, pixel setup, and scaling strategies.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check-circle"></i> 6 Weeks Training</li>
+                        <li><i class="fas fa-check-circle"></i> Live Projects</li>
+                        <li><i class="fas fa-check-circle"></i> Certification</li>
+                    </ul>
+                    <a href="#contact" class="btn-course">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- Google Ads Course (₹4,999) -->
@@ -1538,10 +1572,13 @@
                     <div class="course-icon"><i class="fab fa-google"></i></div>
                     <h3>Google Ads Course</h3>
                     <div class="course-price">₹4,999 <small>+ tax</small></div>
-                    <p class="course-description">
-                        Search, display & YouTube ads. Keyword research, bidding, and high-converting campaigns.
-                    </p>
-                    <a href="#" class="btn-course" onclick="return false;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <p class="course-description">Search, display & YouTube ads. Keyword research, bidding, and high-converting campaigns.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check-circle"></i> 6 Weeks Training</li>
+                        <li><i class="fas fa-check-circle"></i> Live Projects</li>
+                        <li><i class="fas fa-check-circle"></i> Certification</li>
+                    </ul>
+                    <a href="#contact" class="btn-course">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- Web Development Course (₹4,999) -->
@@ -1549,31 +1586,29 @@
                     <div class="course-icon"><i class="fas fa-code"></i></div>
                     <h3>Web Dev Course</h3>
                     <div class="course-price">₹4,999 <small>+ tax</small></div>
-                    <p class="course-description">
-                        Build modern, responsive websites with HTML, CSS, JavaScript & landing page optimization.
-                    </p>
-                    <a href="#" class="btn-course" onclick="return false;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <p class="course-description">Build modern, responsive websites with HTML, CSS, JavaScript & landing page optimization.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check-circle"></i> 8 Weeks Training</li>
+                        <li><i class="fas fa-check-circle"></i> 5 Live Projects</li>
+                        <li><i class="fas fa-check-circle"></i> Certification</li>
+                    </ul>
+                    <a href="#contact" class="btn-course">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- WhatsApp Business API (₹9,999) -->
-                <div class="course-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="course-card featured" data-aos="fade-up" data-aos-delay="500">
                     <span class="course-badge">API INTEGRATION</span>
                     <div class="course-icon"><i class="fab fa-whatsapp"></i></div>
                     <h3>WhatsApp API</h3>
                     <div class="course-price">₹9,999 <small>/ setup</small></div>
-                    <p class="course-description">
-                        Official WhatsApp Business API setup: automated notifications, chatbots & broadcast templates.
-                    </p>
-                    <a href="#" class="btn-course" onclick="return false;">Get API <i class="fas fa-arrow-right"></i></a>
+                    <p class="course-description">Official WhatsApp Business API setup: automated notifications, chatbots & broadcast templates.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check-circle"></i> Complete Setup</li>
+                        <li><i class="fas fa-check-circle"></i> Bot Integration</li>
+                        <li><i class="fas fa-check-circle"></i> 30 Days Support</li>
+                    </ul>
+                    <a href="#contact" class="btn-course">Get API <i class="fas fa-arrow-right"></i></a>
                 </div>
-            </div>
-
-            <!-- Image placeholder (blank link for your logo) -->
-            <div class="image-note" style="margin-top: 2rem; padding: 1rem; background: rgba(0,168,255,0.05); border-radius: 1rem; border: 1px dashed var(--electric-blue); text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
-                <i class="fas fa-image"></i> 
-                <span>🔗 Your course logo / banner link: </span>
-                <a href="#" onclick="return false;" style="color: var(--electric-blue); text-decoration: none; border-bottom: 1px dotted;">https://your-image-url.com/logo.png</a> 
-                (blank link – insert your own URL)
             </div>
         </div>
     </section>
@@ -1649,10 +1684,10 @@
                     <h3>Send Us a Message</h3>
                     
                     <form id="contactForm" onsubmit="submitForm(event)">
-                        <input type="hidden" name="_subject" value="🔥 New Lead from Nova X Growth Website!">
+                        <input type="hidden" name="_subject" value="🔥 New Lead from Growth X Nova Website!">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_autoresponse" value="✨ Thank you for contacting Nova X Growth! We've received your message and will get back to you within 24 hours. 🚀">
+                        <input type="hidden" name="_autoresponse" value="✨ Thank you for contacting Growth X Nova! We've received your message and will get back to you within 24 hours. 🚀">
                         
                         <div class="form-row">
                             <div class="form-group">
@@ -1718,7 +1753,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <div class="logo-text">Nova X Growth</div>
+                    <div class="logo-text">Growth X Nova</div>
                     <p>Turning Clicks Into Customers</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1758,7 +1793,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 Nova X Growth. All rights reserved. | Turning Clicks Into Customers</p>
+                <p>© 2024 Growth X Nova. All rights reserved. | Turning Clicks Into Customers</p>
             </div>
         </div>
     </footer>
@@ -1857,13 +1892,6 @@
         }
         window.addEventListener('resize', setVH);
         setVH();
-
-        // Make all course buttons blank (prevent any default)
-        document.querySelectorAll('.btn-course, .image-note a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-            });
-        });
     </script>
 </body>
 </html>
