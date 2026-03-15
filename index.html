@@ -251,7 +251,6 @@
             transition: width 0.3s ease;
         }
 
-        /* HOVER FIX: explicit hover rules */
         .nav-links a:hover {
             color: var(--electric-blue);
         }
@@ -396,7 +395,7 @@
             background: rgba(0, 168, 255, 0.2);
         }
 
-        /* ===== FIXED: TRUST BADGE ===== */
+        /* ===== TRUST BADGE ===== */
         .trust-badge {
             margin-top: 20px;
             padding: 0 15px;
@@ -669,6 +668,128 @@
             .packages-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
+            }
+        }
+
+        /* ===== COURSES SECTION (NEW) ===== */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding: 0 15px;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 1.5rem;
+            padding: 2rem 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--electric-blue);
+            box-shadow: 0 20px 40px rgba(0,168,255,0.15);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .course-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            width: fit-content;
+        }
+
+        .course-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        .course-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--electric-blue);
+            margin: 0.75rem 0 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .course-price small {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 400;
+        }
+
+        .course-description {
+            color: rgba(245, 247, 250, 0.7);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .btn-course {
+            background: transparent;
+            border: 2px solid var(--electric-blue);
+            color: var(--soft-white);
+            padding: 0.8rem 1rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .btn-course i {
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-course:hover {
+            background: rgba(0, 168, 255, 0.15);
+            border-color: var(--nova-purple);
+            gap: 0.8rem;
+        }
+
+        .btn-course:active {
+            transform: scale(0.98);
+        }
+
+        .course-badge {
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        @media (min-width: 640px) {
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .courses-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
@@ -1206,7 +1327,6 @@
             }
         }
 
-        /* Ensure AOS doesn't hide elements on mobile if disabled */
         [data-aos] {
             pointer-events: auto !important;
         }
@@ -1236,6 +1356,7 @@
                 <a href="#home">Home</a>
                 <a href="#services">Services</a>
                 <a href="#packages">Packages</a>
+                <a href="#courses">Courses</a>
                 <a href="#work">Work</a>
                 <a href="#contact" class="nav-cta">Get Growth</a>
             </div>
@@ -1339,233 +1460,62 @@
         </div>
     </section>
 
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Nova X Growth — Courses Section (standalone)</title>
-    
-    <!-- Fonts & Icons (same as original) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* minimal reset & variables – matches original Nova X style */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- Packages Section -->
+    <section id="packages">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">🚀 Growth <span class="gradient-text">Packages</span></h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Choose the perfect package for your business goals
+            </p>
 
-        :root {
-            --electric-blue: #00A8FF;
-            --nova-purple: #8A2BE2;
-            --dark-navy: #0B0F1A;
-            --soft-white: #F5F7FA;
-            --accent-pink: #FF4ECD;
-            --gradient-primary: linear-gradient(135deg, #00A8FF, #8A2BE2);
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border-glow: rgba(0, 168, 255, 0.2);
-        }
+            <div class="packages-grid">
+                <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Starter Growth</h3>
+                    <p style="color: rgba(245,247,250,0.7);">Perfect for businesses just starting</p>
+                    <div class="package-price">₹2,999<span style="font-size: 0.9rem; color: rgba(245,247,250,0.5);">/mo</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> Ads Setup (FB + Google)</li>
+                        <li><i class="fas fa-check-circle"></i> Landing Page Design</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Weekly Reporting</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary" style="width:100%; text-align:center;">Get Started</a>
+                </div>
+                <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Scale Package</h3>
+                    <p style="color: rgba(245,247,250,0.7);">For businesses ready to accelerate</p>
+                    <div class="package-price">₹4,999<span style="font-size: 0.9rem; color: rgba(245,247,250,0.5);">/mo</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> Full Ad Management</li>
+                        <li><i class="fas fa-check-circle"></i> Creative Production</li>
+                        <li><i class="fas fa-check-circle"></i> CRO + A/B Testing</li>
+                        <li><i class="fas fa-check-circle"></i> Daily Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Custom Dashboard</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary" style="width:100%; text-align:center;">Get Started</a>
+                </div>
+                <div class="package-card featured" data-aos="fade-up" data-aos-delay="400">
+                    <span class="package-badge">⭐ Most Popular</span>
+                    <h3>Domination Package</h3>
+                    <p style="color: rgba(245,247,250,0.7);">Full marketing system for market leaders</p>
+                    <div class="package-price">₹9,999<span style="font-size: 0.9rem; color: rgba(245,247,250,0.5);">/mo</span></div>
+                    <ul class="package-features" style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+                        <li><i class="fas fa-check-circle"></i> Everything in Scale</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Strategist</li>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Revisions</li>
+                        <li><i class="fas fa-check-circle"></i> Monthly Strategy Call</li>
+                        <li><i class="fas fa-check-circle"></i> Competitor Analysis</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 Priority Support</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary" style="width:100%; text-align:center;">Book Discovery Call</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark-navy);
-            color: var(--soft-white);
-            line-height: 1.6;
-            padding: 2rem 1rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* section titles (exactly as in original) */
-        .section-title {
-            text-align: center;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin-bottom: 0.5rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-
-        .gradient-text {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: rgba(245, 247, 250, 0.7);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-size: 1rem;
-            padding: 0 1rem;
-        }
-
-        /* COURSES GRID – new section */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .course-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            border-radius: 1.5rem;
-            padding: 2rem 1.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            backdrop-filter: blur(4px);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .course-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--electric-blue);
-            box-shadow: 0 20px 40px rgba(0,168,255,0.15);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .course-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            width: fit-content;
-        }
-
-        .course-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.25rem;
-            font-weight: 700;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .course-price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--electric-blue);
-            margin: 0.75rem 0 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .course-price small {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.5);
-            font-weight: 400;
-        }
-
-        .course-description {
-            color: rgba(245, 247, 250, 0.7);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex: 1;
-        }
-
-        .btn-course {
-            background: transparent;
-            border: 2px solid var(--electric-blue);
-            color: var(--soft-white);
-            padding: 0.8rem 1rem;
-            border-radius: 3rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            transition: all 0.2s;
-            margin-top: 0.5rem;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        .btn-course i {
-            font-size: 0.9rem;
-            transition: transform 0.2s;
-        }
-
-        .btn-course:hover {
-            background: rgba(0, 168, 255, 0.15);
-            border-color: var(--nova-purple);
-            gap: 0.8rem;
-        }
-
-        .btn-course:active {
-            transform: scale(0.98);
-        }
-
-        /* badge for special item (WhatsApp API) */
-        .course-badge {
-            background: var(--gradient-primary);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            letter-spacing: 0.3px;
-        }
-
-        /* responsive grid */
-        @media (min-width: 640px) {
-            .courses-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .courses-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* small note for image placeholder (as requested) */
-        .image-note {
-            margin-top: 2.5rem;
-            padding: 1rem;
-            background: rgba(0,168,255,0.05);
-            border-radius: 1rem;
-            border: 1px dashed var(--electric-blue);
-            text-align: center;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.6);
-        }
-
-        .image-note i {
-            color: var(--electric-blue);
-            margin-right: 0.4rem;
-        }
-
-        .image-note a {
-            color: var(--electric-blue);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px dotted;
-        }
-
-        /* (original WhatsApp / nav etc not included – this is just the new section) */
-        hr {
-            border: 0.5px solid rgba(255,255,255,0.1);
-            margin: 2rem 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- ===== NEW COURSES SECTION (exactly as requested) ===== -->
-        <section id="courses">
+    <!-- NEW COURSES SECTION -->
+    <section id="courses">
+        <div class="container">
             <h2 class="section-title" data-aos="fade-up">📘 <span class="gradient-text">Courses & API</span></h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
                 Upskill with our professional courses or integrate WhatsApp Business API
@@ -1580,10 +1530,7 @@
                     <p class="course-description">
                         Master Facebook & Instagram ads: targeting, creative, pixel setup, and scaling strategies.
                     </p>
-                    <a href="#" class="btn-course" onclick="return false;"> 
-                        <!-- blank link for image insertion (you said you'd handle URL) -->
-                        Enroll Now <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="#" class="btn-course" onclick="return false;">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- Google Ads Course (₹4,999) -->
@@ -1594,9 +1541,7 @@
                     <p class="course-description">
                         Search, display & YouTube ads. Keyword research, bidding, and high-converting campaigns.
                     </p>
-                    <a href="#" class="btn-course" onclick="return false;">
-                        Enroll Now <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="#" class="btn-course" onclick="return false;">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- Web Development Course (₹4,999) -->
@@ -1607,9 +1552,7 @@
                     <p class="course-description">
                         Build modern, responsive websites with HTML, CSS, JavaScript & landing page optimization.
                     </p>
-                    <a href="#" class="btn-course" onclick="return false;">
-                        Enroll Now <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="#" class="btn-course" onclick="return false;">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- WhatsApp Business API (₹9,999) -->
@@ -1621,45 +1564,19 @@
                     <p class="course-description">
                         Official WhatsApp Business API setup: automated notifications, chatbots & broadcast templates.
                     </p>
-                    <a href="#" class="btn-course" onclick="return false;">
-                        Get API <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="#" class="btn-course" onclick="return false;">Get API <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
-            <!-- placeholder note for your image / logo link (as you mentioned: "add this image as Website Link shows logo create a blank link for inserting the image url") -->
-            <div class="image-note" data-aos="fade-up">
+            <!-- Image placeholder (blank link for your logo) -->
+            <div class="image-note" style="margin-top: 2rem; padding: 1rem; background: rgba(0,168,255,0.05); border-radius: 1rem; border: 1px dashed var(--electric-blue); text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
                 <i class="fas fa-image"></i> 
                 <span>🔗 Your course logo / banner link: </span>
-                <a href="#" onclick="return false;">https://your-image-url.com/logo.png</a> 
-                (blank link – you can insert your own URL)
+                <a href="#" onclick="return false;" style="color: var(--electric-blue); text-decoration: none; border-bottom: 1px dotted;">https://your-image-url.com/logo.png</a> 
+                (blank link – insert your own URL)
             </div>
-        </section>
-
-        <!-- subtle separator (just for demo) -->
-        <hr>
-
-        <p style="text-align: center; color: rgba(255,255,255,0.4); font-size: 0.85rem; margin: 2rem 0;">
-            ⚡ The new courses section above is ready to be inserted into your main website (e.g., before contact).<br>
-            All prices and icons match your brief. The "blank link" is preserved for you to attach an image/logo URL.
-        </p>
-    </div>
-
-    <!-- AOS (optional, but included to match original) -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 600, once: true });
-        // dummy onclick for blank links – they do nothing but satisfy the "blank link" requirement
-        document.querySelectorAll('.btn-course, .image-note a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                // you can replace with your own URL later
-                console.log('blank link (ready for image URL)');
-            });
-        });
-    </script>
-</body>
-</html>
+        </div>
+    </section>
 
     <!-- Case Studies -->
     <section id="work">
@@ -1849,7 +1766,7 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 600, once: true, disable: false }); // AOS always active, smooth on all devices
+        AOS.init({ duration: 600, once: true, disable: false });
 
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
@@ -1940,7 +1857,13 @@
         }
         window.addEventListener('resize', setVH);
         setVH();
+
+        // Make all course buttons blank (prevent any default)
+        document.querySelectorAll('.btn-course, .image-note a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+            });
+        });
     </script>
 </body>
 </html>
-```
